@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { formData } from '../formData';
 
 const PersonalInformation = () => {
-
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
-    const [email, setEmail] = useState('');
+    const [mail, setMail] = useState('');
     const [phoneNumber, setPhoneNumer] = useState('');
 
-    const setPhone = () => {
+    const checkPhoneNumber = () => {
         if (phoneNumber[0] === '+' && phoneNumber.length === 13) {
             let ph = '';
             for (let i = 0; i < phoneNumber.length; i++) {
@@ -22,22 +22,35 @@ const PersonalInformation = () => {
                 }
             }
         }
+        if (!phoneNumber.length) return true;
+        if (phoneNumber.length && phoneNumber.includes('+995')) return true;
+        return false;
+    }
 
+
+
+    const setData = () => {
+        checkPhoneNumber();
+        formData.first_name = firstName;
+        formData.last_name = lastName;
+        formData.email = mail;
+        formData.phone = phoneNumber;
     }
 
     useEffect(() => {
-        document.addEventListener('click', setPhone);
+        document.addEventListener('click', setData);
+        console.log(checkPhoneNumber());
         return () => {
-            document.removeEventListener('click', setPhone);
+            document.removeEventListener('click', setData);
         }
-    }, [setPhone]);
+    }, [setData]);
 
     return (
         <div className="form-app">
             <input type="text" value={firstName} onChange={e => setFirstName(e.target.value)} placeholder='First Name' required />
             <input type="text" value={lastName} onChange={e => setLastName(e.target.value)} placeholder='Last Name' required />
-            <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder='E Mail' required />
-            <input type="tel" maxLength='18' value={phoneNumber} onChange={e => setPhoneNumer(e.target.value)} placeholder='+995 5__ __ __ __' pattern='[+]{1}[0-9]{3} [0-9]{3} [0-9]{2} [0-9]{2} [0-9]{2}' required />
+            <input type="email" value={mail} onChange={e => setMail(e.target.value)} placeholder='E Mail' required />
+            <input type="tel" maxLength='18' value={phoneNumber} onChange={e => setPhoneNumer(e.target.value)} placeholder='+995 5__ __ __ __' pattern='[+]{1}[0-9]{3} [0-9]{3} [0-9]{2} [0-9]{2} [0-9]{2}' />
         </div>
     );
 }

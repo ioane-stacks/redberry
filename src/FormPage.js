@@ -19,6 +19,10 @@ const FormPage = () => {
                 </div>
             </section>
             <section className="description">
+                <div className="container-inner">
+                    <h1>{descriptionName}</h1>
+                    <p>{description}</p>
+                </div>
             </section>
         </div>
     );
