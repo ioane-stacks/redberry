@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/redberry/static/css/main.6bd592ed.css",
+    "main.js": "/redberry/static/js/main.66b784c3.js",
+    "static/media/stars.png": "/redberry/static/media/stars.d759918a604f5d05831e.png",
+    "static/media/Montserrat-Light.ttf": "/redberry/static/media/Montserrat-Light.f0963fd9968fbd54cc35.ttf",
+    "static/media/rocketman.png": "/redberry/static/media/rocketman.82a9c0709b4bc46b4f78.png",
+    "static/media/Rowdies-Regular.ttf": "/redberry/static/media/Rowdies-Regular.c3e51820d6d0195a2ef9.ttf",
+    "static/media/Rowdies-Bold.ttf": "/redberry/static/media/Rowdies-Bold.e5afa6906cd6858d6509.ttf",
+    "static/media/Rowdies-Light.ttf": "/redberry/static/media/Rowdies-Light.97fd181336cb2a8b2b6e.ttf",
+    "index.html": "/redberry/index.html",
+    "main.6bd592ed.css.map": "/redberry/static/css/main.6bd592ed.css.map",
+    "main.66b784c3.js.map": "/redberry/static/js/main.66b784c3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6bd592ed.css",
+    "static/js/main.66b784c3.js"
+  ]
+}
