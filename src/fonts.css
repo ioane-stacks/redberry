@@ -25,3 +25,10 @@
     font-style: normal;
     font-weight: 200;
 }
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('./Fonts/Montserrat-Italic.ttf');
+    font-style: italic;
+    font-weight: 400;
+}

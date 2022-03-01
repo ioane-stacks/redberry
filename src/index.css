@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  text-transform: capitalize;
   user-select: none;
 }
 
@@ -84,6 +83,7 @@ button, p, a, li {
   height: 100vh;
   display: grid;
   grid-template-columns: 50% 50%;
+  overflow: hidden;
 }
 
 .container-inner {
@@ -100,12 +100,25 @@ button, p, a, li {
 }
 
 .form-app {
-  width: 100%;
+  width: 70%;
   background-color: var(--primary-bg);
+  margin: 70px auto;
 }
 
 .description {
   width: 100%;
-  height: 100%;
   background-image: var(--primary-bg);
+}
+
+input {
+  width: 100%;
+  height: 54px;
+  margin-bottom: 30px;
+  border: 1px solid #525557;
+  outline: none;
+  font-family: 'Montserrat';
+  font-style: italic;
+  font-weight: 400;
+  font-size: 14px;
+  padding: 0 40px;
 }
