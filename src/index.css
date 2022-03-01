@@ -88,10 +88,12 @@ button, p, a, li {
 }
 
 .container-inner {
-  width: 80%;
+  width: 75%;
+  height: 100vh;
   margin-left: auto;
   margin-right: auto;
-  padding: 75px 0;
+  padding: 10vh 0;
+  position: relative;
 }
 
 .questionaire h1 {
@@ -104,9 +106,9 @@ button, p, a, li {
 }
 
 .description p {
-  margin-top: 60px;
+  margin-top: 80px;
   display: flex;
-  font-size: 1rem;
+  font-size: 1.4vw;
   line-height: 200%;
   letter-spacing: 0.05rem;
 }
@@ -115,6 +117,14 @@ button, p, a, li {
   width: 70%;
   background-color: var(--primary-bg);
   margin: 70px auto;
+  margin-bottom: 0;
+  text-align: center;
+  max-height: 60vh;
+  overflow-y: scroll;
+}
+
+.form-app::-webkit-scrollbar {
+  display: none;
 }
 
 .description {
@@ -123,9 +133,9 @@ button, p, a, li {
 }
 
 input {
-  width: 100%;
+  width: 90%;
   height: 54px;
-  margin-bottom: 30px;
+  margin-bottom: 5vh;
   border: 1px solid #525557;
   outline: none;
   font-family: 'Montserrat';
@@ -136,9 +146,53 @@ input {
 }
 
 .pagination {
-  width: 50%;
+  width: 40%;
   height: 50px;
-  display: flex;
+  display: grid;
+  margin-top: .7rem;
+  gap: .2rem;
+  grid-template-columns: auto auto auto auto auto auto auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (min-width: 1367px) {
+  .pagination {
+    margin-top: 5rem;
+  }
+}
+
+.btn-outline {
+  width: 1.2rem;
+  height: 1.2rem;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid var(--redberry-red);
+  color: var(--redberry-red);
+  font-size: 1rem;
   align-items: center;
-  background-color: var(--primary-bg);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.btn-fill {
+  width: 1.2rem;
+  height: 1.2rem;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--redberry-red);
+  border: none;
+  font-weight: bold;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.btn-fill:disabled {
+  opacity: 0.2;
+  cursor: auto;
 }

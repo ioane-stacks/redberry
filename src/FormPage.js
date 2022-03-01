@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PersonalInformation from "./form-contents/PersonalInformation";
 import { data } from './data';
+import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from 'react-icons/md';
 const FormPage = () => {
 
     const [index, setIndex] = useState(0);
@@ -16,6 +17,15 @@ const FormPage = () => {
                     <form action="">
                         <PersonalInformation />
                     </form>
+                    <div className="pagination">
+                        <button className="btn-outline"><MdOutlineKeyboardArrowLeft /></button>
+                        <button className="btn-fill"></button>
+                        <button className="btn-fill" disabled></button>
+                        <button className="btn-fill" disabled></button>
+                        <button className="btn-fill" disabled></button>
+                        <button className="btn-fill" disabled></button>
+                        <button className="btn-outline"><MdOutlineKeyboardArrowRight /></button>
+                    </div>
                 </div>
             </section>
             <section className="description">
