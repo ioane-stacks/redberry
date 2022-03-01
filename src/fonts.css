@@ -1,0 +1,27 @@
+@font-face {
+    font-family: 'Rowdies';
+    src: url('./Fonts/Rowdies-Regular.ttf');
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Rowdies';
+    src: url('./Fonts/Rowdies-Light.ttf');
+    font-style: normal;
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: 'Rowdies';
+    src: url('./Fonts/Rowdies-Bold.ttf');
+    font-style: normal;
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('./Fonts/Montserrat-Light.ttf');
+    font-style: normal;
+    font-weight: 200;
+}

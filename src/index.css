@@ -1,13 +1,109 @@
-body {
+*, ::after, ::before {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  text-transform: capitalize;
+  user-select: none;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  --primary-red: #EB3535;
+  --primary-bg: radial-gradient(50% 50% at 50% 50%, #0C0D0E 0%, #151718 73.44%);
+  --primary-stroke: #525557;
+  --redberry-red: #FE3B1F;
+}
+
+h1, h2, h3, h4 {
+  color: var(--redberry-red);
+  font-family: 'Rowdies';
+  font-style: normal;
+  font-weight: normal;
+}
+
+button, p, a, li {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  color: #fff;
+}
+
+/* Langing Page */
+.langing-page {
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+  padding-top: 21vh;
+  overflow: hidden;
+  background: #0C0D0E;
+  mix-blend-mode: normal;
+  background-image: url(./images/stars.png);
+  background-size: cover;
+}
+
+.langing-page h1 {
+  position: relative;
+  font-size: 5vw;
+}
+
+.lp-form {
+  padding-top: 13vh;
+}
+
+.btn {
+  background-color: var(--redberry-red);
+  border-radius: 50px;
+  border: none;
+  padding: 15px 60px;
+  margin: 10px 0;
+  font-size: 1rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+}
+
+.lnk {
+  background-color: transparent;
+  text-decoration: underline;
+  max-width: 400px;
+}
+
+.rocketman {
+  width: 20rem;
+  position: relative;
+  top: -58px;
+  left: -20px;
+  z-index: -1;
+}
+
+/* Langing Page */
+
+/* Form */
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.container-inner {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 55px 0;
+}
+
+.questionaire h1 {
+  font-size: 3.4vw;
+  text-transform: none;
+  text-align: center;
+}
+
+.form-app {
+  width: 100%;
+  background-color: var(--primary-bg);
+}
+
+.description {
+  background-image: var(--primary-bg);
 }
