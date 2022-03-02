@@ -10,6 +10,7 @@
   --primary-bg: radial-gradient(50% 50% at 50% 50%, #0C0D0E 0%, #151718 73.44%);
   --primary-stroke: #525557;
   --redberry-red: #FE3B1F;
+  --validated: #5bc074;
 }
 
 h1, h2, h3, h4 {
@@ -119,7 +120,7 @@ button, p, a, li {
   margin: 70px auto;
   margin-bottom: 0;
   text-align: center;
-  max-height: 60vh;
+  max-height: 53vh;
   overflow-y: scroll;
 }
 
@@ -136,13 +137,17 @@ input {
   width: 90%;
   height: 54px;
   margin-bottom: 5vh;
-  border: 1px solid #525557;
+  border: 1px solid var(--primary-stroke);
   outline: none;
   font-family: 'Montserrat';
   font-style: italic;
   font-weight: 400;
   font-size: 14px;
   padding: 0 40px;
+}
+
+.valid-text {
+  background-color: var(--validated);
 }
 
 .pagination {
@@ -156,7 +161,7 @@ input {
   margin-right: auto;
 }
 
-@media screen and (min-width: 1367px) {
+@media screen and (min-width: 1920px) {
   .pagination {
     margin-top: 5rem;
   }
@@ -194,5 +199,4 @@ input {
 
 .btn-fill:disabled {
   opacity: 0.2;
-  cursor: auto;
 }

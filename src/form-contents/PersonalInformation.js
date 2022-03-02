@@ -17,7 +17,7 @@ const PersonalInformation = () => {
                     if (i === 6) ph += ' ';
                     if (i === 8) ph += ' ';
                     if (i === 10) ph += ' ';
-                    if (i === 12) ph += ' ';
+
                     setPhoneNumer(ph);
                 }
             }
@@ -26,8 +26,6 @@ const PersonalInformation = () => {
         if (phoneNumber.length && phoneNumber.includes('+995')) return true;
         return false;
     }
-
-
 
     const setData = () => {
         checkPhoneNumber();
@@ -38,19 +36,18 @@ const PersonalInformation = () => {
     }
 
     useEffect(() => {
-        document.addEventListener('click', setData);
-        console.log(checkPhoneNumber());
+        window.addEventListener('click', setData);
         return () => {
-            document.removeEventListener('click', setData);
+            window.removeEventListener('click', setData);
         }
     }, [setData]);
 
     return (
         <div className="form-app">
-            <input type="text" value={firstName} onChange={e => setFirstName(e.target.value)} placeholder='First Name' required />
-            <input type="text" value={lastName} onChange={e => setLastName(e.target.value)} placeholder='Last Name' required />
-            <input type="email" value={mail} onChange={e => setMail(e.target.value)} placeholder='E Mail' required />
-            <input type="tel" maxLength='18' value={phoneNumber} onChange={e => setPhoneNumer(e.target.value)} placeholder='+995 5__ __ __ __' pattern='[+]{1}[0-9]{3} [0-9]{3} [0-9]{2} [0-9]{2} [0-9]{2}' />
+            <input type="text" className={firstName.length >= 2 ? 'valid-text' : ''} value={firstName} onChange={e => setFirstName(e.target.value)} placeholder='First Name' required />
+            <input type="text" className={lastName.length >= 2 ? 'valid-text' : ''} value={lastName} onChange={e => setLastName(e.target.value)} placeholder='Last Name' required />
+            <input type="email" className={mail.includes('@') ? 'valid-text' : ''} value={mail} onChange={e => setMail(e.target.value)} placeholder='E Mail' required />
+            <input type="tel" maxLength='17' value={phoneNumber} onChange={e => setPhoneNumer(e.target.value)} placeholder='+995 5__ __ __ __' pattern='[+]{1}[0-9]{3} [0-9]{3} [0-9]{2} [0-9]{2} [0-9]{2}' />
         </div>
     );
 }
