@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/redberry/static/css/main.d1218bac.css",
-    "main.js": "/redberry/static/js/main.32771a28.js",
+    "main.css": "/redberry/static/css/main.2f932aa3.css",
+    "main.js": "/redberry/static/js/main.bc21792c.js",
     "static/media/stars.png": "/redberry/static/media/stars.d759918a604f5d05831e.png",
     "static/media/Montserrat-Italic.ttf": "/redberry/static/media/Montserrat-Italic.ffb8374a74a57a2056b5.ttf",
     "static/media/Montserrat-Light.ttf": "/redberry/static/media/Montserrat-Light.f0963fd9968fbd54cc35.ttf",
@@ -10,11 +10,11 @@
     "static/media/Rowdies-Bold.ttf": "/redberry/static/media/Rowdies-Bold.e5afa6906cd6858d6509.ttf",
     "static/media/Rowdies-Light.ttf": "/redberry/static/media/Rowdies-Light.97fd181336cb2a8b2b6e.ttf",
     "index.html": "/redberry/index.html",
-    "main.d1218bac.css.map": "/redberry/static/css/main.d1218bac.css.map",
-    "main.32771a28.js.map": "/redberry/static/js/main.32771a28.js.map"
+    "main.2f932aa3.css.map": "/redberry/static/css/main.2f932aa3.css.map",
+    "main.bc21792c.js.map": "/redberry/static/js/main.bc21792c.js.map"
   },
   "entrypoints": [
-    "static/css/main.d1218bac.css",
-    "static/js/main.32771a28.js"
+    "static/css/main.2f932aa3.css",
+    "static/js/main.bc21792c.js"
   ]
 }
