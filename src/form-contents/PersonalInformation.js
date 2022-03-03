@@ -5,10 +5,11 @@ const PersonalInformation = () => {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [mail, setMail] = useState('');
-    const [phoneNumber, setPhoneNumer] = useState('');
+    const [phoneNumber, setPhoneNumber] = useState('');
 
     const checkPhoneNumber = () => {
-        if (phoneNumber[0] === '+' && phoneNumber.length === 13) {
+        setPhoneNumber(phoneNumber.replace(/[^+|0-9]/g, ''));
+        if (phoneNumber.includes('+995') && phoneNumber.length === 12) {
             let ph = '';
             for (let i = 0; i < phoneNumber.length; i++) {
                 ph += phoneNumber[i];
@@ -18,7 +19,7 @@ const PersonalInformation = () => {
                     if (i === 8) ph += ' ';
                     if (i === 10) ph += ' ';
 
-                    setPhoneNumer(ph);
+                    setPhoneNumber(ph);
                 }
             }
         }
@@ -36,18 +37,21 @@ const PersonalInformation = () => {
     }
 
     useEffect(() => {
-        window.addEventListener('click', setData);
+        window.addEventListener('keypress', setData);
         return () => {
-            window.removeEventListener('click', setData);
+            window.removeEventListener('keypress', setData);
         }
     }, [setData]);
 
+    const checkLength = (parameter, len) => parameter.length >= len ? 'valid-text mt-2' : 'mt-2';
+    const checkInclude = (parameter, str) => parameter.includes(str) ? 'valid-text mt-2' : 'mt-2';
+
     return (
         <div className="form-app">
-            <input type="text" className={firstName.length >= 2 ? 'valid-text' : ''} value={firstName} onChange={e => setFirstName(e.target.value)} placeholder='First Name' required />
-            <input type="text" className={lastName.length >= 2 ? 'valid-text' : ''} value={lastName} onChange={e => setLastName(e.target.value)} placeholder='Last Name' required />
-            <input type="email" className={mail.includes('@') ? 'valid-text' : ''} value={mail} onChange={e => setMail(e.target.value)} placeholder='E Mail' required />
-            <input type="tel" maxLength='17' value={phoneNumber} onChange={e => setPhoneNumer(e.target.value)} placeholder='+995 5__ __ __ __' pattern='[+]{1}[0-9]{3} [0-9]{3} [0-9]{2} [0-9]{2} [0-9]{2}' />
+            <input type="text" className={checkLength(firstName, 2)} value={firstName} onChange={e => setFirstName(e.target.value)} placeholder='First Name' required />
+            <input type="text" className={checkLength(lastName, 2)} value={lastName} onChange={e => setLastName(e.target.value)} placeholder='Last Name' required />
+            <input type="email" className={checkInclude(mail, '@')} value={mail} onChange={e => setMail(e.target.value)} placeholder='E Mail' required />
+            <input type="tel" className='mt-3' maxLength='17' value={phoneNumber} onChange={e => setPhoneNumber(e.target.value)} placeholder='+995 5__ __ __ __' pattern='[+]{1}[0-9]{3} [0-9]{3} [0-9]{2} [0-9]{2} [0-9]{2}' />
         </div>
     );
 }
