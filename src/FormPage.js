@@ -3,9 +3,8 @@ import PersonalInformation from "./form-contents/PersonalInformation";
 import { data } from './data';
 import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from 'react-icons/md';
 const FormPage = () => {
-
     const [index, setIndex] = useState(0);
-    const { id, questionName, descriptionName, description } = data[index];
+    const { questionName, descriptionName, description } = data[index];
 
 
 

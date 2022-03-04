@@ -1,17 +1,18 @@
-import React from "react";
-import rocketman from './images/rocketman.png';
-
+import React, { useState } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import FormPage from './FormPage';
+import LangingPage from "./LangingPage";
 const Langing = () => {
 
     return (
-        <div className="langing-page">
-            <h1>welcome rocketeer !</h1>
-            <div className="lp-form">
-                <button className="btn">start questionaire</button>
-                <a className="btn lnk" href="#">submitted applications</a>
-            </div>
-            <img src={rocketman} alt="rocketman" className="rocketman" />
-        </div>
+        <Router>
+            <Switch>
+                <Route path="/FormPage">
+                    <FormPage />
+                </Route>
+            </Switch>
+            <LangingPage />
+        </Router>
     );
 }
 

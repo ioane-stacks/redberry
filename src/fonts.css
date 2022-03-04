@@ -21,9 +21,9 @@
 
 @font-face {
     font-family: 'Montserrat';
-    src: url('./Fonts/Montserrat-Light.ttf');
+    src: url('./Fonts/Montserrat-ExtraLight.ttf');
     font-style: normal;
-    font-weight: 200;
+    font-weight: 100;
 }
 
 @font-face {

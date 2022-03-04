@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   user-select: none;
+  overflow: hidden;
 }
 
 :root {
@@ -30,15 +31,15 @@ button, p, a, li {
 
 /* Langing Page */
 .langing-page {
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   text-align: center;
   padding-top: 19vh;
   overflow: hidden;
-  background: #0C0D0E;
   mix-blend-mode: normal;
-  background-image: url(./images/stars.png);
+  background-image: url(./images/stars.png), var(--primary-bg);
   background-size: cover;
+  position: absolute;
 }
 
 .langing-page h1 {
@@ -47,35 +48,39 @@ button, p, a, li {
 }
 
 .lp-form {
-  padding-top: 11vh;
+  padding-top: 9vh;
+  width: 423px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .btn {
+  width: 100%;
   background-color: var(--redberry-red);
   border-radius: 50px;
   border: none;
-  padding: 15px 60px;
-  margin: 10px 0;
-  font-size: 1rem;
+  padding: 25px 90px;
+  margin: 30px 0;
+  font-size: 1.5rem;
   display: block;
   margin-left: auto;
   margin-right: auto;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .lnk {
+  width: 100%;
+  padding: 0 !important;
   background-color: transparent;
   text-decoration: underline;
-  max-width: 400px;
-  z-index: 1 !important;
 }
 
 .rocketman {
-  width: 20rem;
+  width: 35rem;
   position: relative;
-  top: -28px;
-  left: -20px;
-
+  top: -58px;
+  left: -33px;
 }
 
 /* Langing Page */
@@ -87,6 +92,9 @@ button, p, a, li {
   display: grid;
   grid-template-columns: 50% 50%;
   overflow: hidden;
+  position: absolute;
+  background-color: #fff;
+  z-index: 1;
 }
 
 .container-inner {
@@ -180,8 +188,27 @@ input {
 }
 
 @media screen and (max-width: 1366px) {
+  .lp-form {
+    max-width: 300px;
+  }
+
   .pagination {
     margin-top: .7rem;
+  }
+
+  .btn {
+    padding: 15px 60px;
+    font-size: 1rem;
+  }
+
+  .lnk {
+    max-width: 400px;
+  }
+
+  .rocketman {
+    width: 20rem;
+    top: -28px;
+    left: -25px;
   }
 }
 
