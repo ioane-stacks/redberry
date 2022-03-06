@@ -8,8 +8,15 @@ const Langing = () => {
         <Router>
             <LangingPage />
             <Switch>
+                <Route exact path="/">
+                    <LangingPage />
+                </Route>
                 <Route path="/FormPage">
                     <FormPage />
+                </Route>
+                <Route path="/FormPage/:id" children={<FormPage />}></Route>
+                <Route path="*">
+                    <h2>No such Page</h2>
                 </Route>
             </Switch>
         </Router>

@@ -4,12 +4,7 @@ export const formData = {
     "last_name": "",
     "email": "",
     "phone": "",
-    "skills": [
-        {
-            "id": 1,
-            "experience": 3
-        }
-    ],
+    "skills": [],
     "work_preference": "from_home",
     "had_covid": true,
     "had_covid_at": "2022-02-23",

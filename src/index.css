@@ -74,8 +74,12 @@ button, p, a, li {
 }
 
 .squared {
-  padding: 25px 90px;
+  width: auto;
+  padding: 13px 20px;
   background-color: var(--redberry-red);
+  font-size: 1rem;
+  margin-left: auto;
+  margin-right: 0;
 }
 
 .link {
@@ -107,7 +111,7 @@ button, p, a, li {
 }
 
 .container-inner {
-  width: 75%;
+  width: 80%;
   height: 100vh;
   margin-left: auto;
   margin-right: auto;
@@ -118,6 +122,7 @@ button, p, a, li {
 .questionaire h1 {
   font-size: 3.4vw;
   text-align: center;
+  height: 20vh;
 }
 
 .description h1 {
@@ -133,13 +138,14 @@ button, p, a, li {
 }
 
 .form-app {
-  width: 70%;
+  width: 62%;
+  min-height: 40vh;
   background-color: var(--primary-bg);
   margin: 50px auto;
   margin-bottom: 0;
-  text-align: center;
   max-height: 53vh;
   overflow-y: scroll;
+  position: relative;
 }
 
 .form-app::-webkit-scrollbar {
@@ -161,15 +167,96 @@ button, p, a, li {
 }
 
 input {
-  width: 90%;
-  height: 60px;
-  border: 1px solid var(--primary-stroke);
-  outline: none;
   font-family: 'Montserrat';
   font-style: italic;
   font-weight: 400;
   font-size: 14px;
-  padding: 0 40px;
+}
+
+input, .select, .selected {
+  width: 100%;
+  height: 60px;
+  border: 1px solid var(--primary-stroke);
+  outline: none;
+  padding: 0 20px 0 55px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+.drop-menu {
+  width: 100%;
+  position: relative;
+}
+
+.select {
+  color: #252525;
+  font-family: 'Montserrat';
+  font-style: italic;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+}
+
+.selected {
+  color: #111 !important;
+  font-family: 'Montserrat';
+  font-style: italic;
+  font-weight: 400;
+  display: grid;
+  padding-left: 20px;
+  grid-template-columns: 27% 63% 10%;
+  /* text-align: center; */
+  align-items: center;
+}
+
+.sign {
+  margin-left: auto;
+  font-size: 36px;
+  color: var(--redberry-red);
+}
+
+.dropdown {
+  transform: rotate(-90deg);
+}
+
+.remove {
+  width: 1.7rem;
+  height: 1.7rem;
+  border: 1px solid var(--redberry-red);
+  background-color: transparent;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+ul {
+  width: 100%;
+  position: absolute;
+  border: 1px solid var(--primary-stroke);
+  border-top: none;
+  z-index: 1;
+  /* display: none; */
+}
+
+ul li {
+  color: #252525 !important;
+  background-color: #fff;
+  display: block;
+  font-style: italic;
+  /* font-size: 20px; */
+  padding: 15px 30px;
+  font-weight: 400;
+  border-bottom: 1px solid #ddd;
+}
+
+ul li:hover {
+  background-color: #efefef;
+}
+
+/* MARGINS */
+.mt-1 {
+  margin-top: 1rem;
 }
 
 .mt-2 {
@@ -180,13 +267,34 @@ input {
   margin-top: 3rem;
 }
 
+.mt-4 {
+  margin-top: 4rem;
+}
+
+.mb-1 {
+  margin-bottom: 1rem;
+}
+
+.mb-2 {
+  margin-bottom: 2rem;
+}
+
+.mb-3 {
+  margin-bottom: 3rem;
+}
+
+.mb-4 {
+  margin-bottom: 4rem;
+}
+
+/* MARGINS */
 
 .valid-text {
   background-color: var(--validated);
 }
 
 .pagination {
-  width: 40%;
+  width: 30%;
   height: 50px;
   margin-top: 8rem;
   display: grid;
@@ -202,6 +310,7 @@ input {
   }
 
   .pagination {
+    width: 40%;
     margin-top: .7rem;
   }
 

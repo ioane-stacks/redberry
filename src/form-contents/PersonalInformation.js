@@ -29,20 +29,19 @@ const PersonalInformation = () => {
     }
 
     const setData = () => {
-        checkPhoneNumber();
         formData.first_name = firstName;
         formData.last_name = lastName;
         formData.email = mail;
-        formData.phone = phoneNumber;
-        console.log(formData);
+        formData.phone = !phoneNumber.length ? 'NULL' : phoneNumber.split('').filter(x => x !== ' ').join('');
     }
 
     useEffect(() => {
-        window.addEventListener('keypress', setData);
+        setData();
+        window.addEventListener('keypress', checkPhoneNumber);
         return () => {
-            window.removeEventListener('keypress', setData);
+            window.removeEventListener('keypress', checkPhoneNumber);
         }
-    }, [setData]);
+    }, [checkPhoneNumber]);
 
     const checkLength = (parameter, len) => parameter.length >= len ? 'valid-text mt-2' : 'mt-2';
     const checkInclude = (parameter, str) => parameter.includes(str) ? 'valid-text mt-2' : 'mt-2';
