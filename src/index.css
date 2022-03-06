@@ -56,10 +56,7 @@ button, p, a, li {
 
 .btn {
   width: 100%;
-  background-color: var(--redberry-red);
-  border-radius: 50px;
   border: none;
-  padding: 25px 90px;
   margin: 30px 0;
   font-size: 1.5rem;
   display: block;
@@ -69,7 +66,19 @@ button, p, a, li {
   text-decoration: none;
 }
 
-.lnk {
+/* BUTTON STYLES */
+.circled {
+  padding: 25px 90px;
+  border-radius: 50px;
+  background-color: var(--redberry-red);
+}
+
+.squared {
+  padding: 25px 90px;
+  background-color: var(--redberry-red);
+}
+
+.link {
   width: 100%;
   padding: 0 !important;
   background-color: transparent;

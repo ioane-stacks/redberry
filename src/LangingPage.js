@@ -8,8 +8,8 @@ const LangingPage = ({ disp }) => {
         <div className="langing-page" style={{ display: disp }}>
             <h1>welcome rocketeer !</h1>
             <div className="lp-form">
-                <Link className="btn" to="/FormPage">start questionaire</Link>
-                <Link className="btn lnk" to="#">submitted applications</Link>
+                <Link className="btn circled" to="/FormPage">start questionaire</Link>
+                <Link className="btn link" to="#">submitted applications</Link>
             </div>
             <img src={rocketman} alt="rocketman" className="rocketman" />
         </div>

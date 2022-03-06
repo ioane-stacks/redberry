@@ -6,12 +6,12 @@ const Langing = () => {
 
     return (
         <Router>
+            <LangingPage />
             <Switch>
                 <Route path="/FormPage">
                     <FormPage />
                 </Route>
             </Switch>
-            <LangingPage />
         </Router>
     );
 }
