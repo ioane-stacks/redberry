@@ -3,7 +3,7 @@ import { formData } from "../formData";
 import { MdOutlineKeyboardArrowLeft } from 'react-icons/md';
 import { BsDash } from 'react-icons/bs'
 
-const TechnicalSkillSet = () => {
+const TechnicalSkillSet = ({ setTechInfo }) => {
     const [skills, setSkills] = useState([]);
     const [skill, setSkill] = useState(0);
     const [toggle, setToggle] = useState(false);
@@ -54,6 +54,19 @@ const TechnicalSkillSet = () => {
         }
     }
 
+
+    const checkValidation = () => {
+        if (items.length >= 1) {
+            setTechInfo(true);
+        } else {
+            setTechInfo(false);
+        }
+    }
+
+
+    useEffect(() => {
+        checkValidation();
+    }, []);
 
     const DropdownToggle = () => {
         return (

@@ -38,13 +38,13 @@ const FormPage = () => {
                     <h1>{questionName}</h1>
                     <form className="form-app" method="POST" onSubmit={submitHandler}>
                         {index === 1 && <PersonalInformation setPersInfo={setPersInfo} />}
-                        {(persInfo && index === 2) && <TechnicalSkillSet setTechIfo={setTechInfo} />}
+                        {(persInfo && index === 2) && <TechnicalSkillSet setTechInfo={setTechInfo} />}
                     </form>
                     <div className="pagination">
                         <button className="btn-outline"><MdOutlineKeyboardArrowLeft /></button>
                         <button onClick={() => setIndex(1)} className={changeBullets(1)}></button>
                         <button onClick={() => setIndex(2)} className={changeBullets(2)} disabled={persInfo ? '' : 'disabled'}></button>
-                        <button onClick={() => setIndex(3)} className={changeBullets(3)}></button>
+                        <button onClick={() => setIndex(3)} className={changeBullets(3)} disabled={techInfo ? '' : 'disabled'}></button>
                         <button onClick={() => setIndex(4)} className={changeBullets(4)}></button>
                         <button onClick={() => setIndex(5)} className={changeBullets(5)}></button>
                         <button className="btn-outline"><MdOutlineKeyboardArrowRight /></button>
