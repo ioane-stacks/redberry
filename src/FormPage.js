@@ -44,7 +44,7 @@ const FormPage = () => {
                         <button className="btn-outline"><MdOutlineKeyboardArrowLeft /></button>
                         <button onClick={() => setIndex(1)} className={changeBullets(1)}></button>
                         <button onClick={() => setIndex(2)} className={changeBullets(2)} disabled={persInfo ? '' : 'disabled'}></button>
-                        <button onClick={() => setIndex(3)} className={changeBullets(3)} disabled={techInfo ? '' : 'disabled'}></button>
+                        <button onClick={() => setIndex(3)} className={changeBullets(3)} disabled={persInfo && techInfo ? '' : 'disabled'}></button>
                         <button onClick={() => setIndex(4)} className={changeBullets(4)}></button>
                         <button onClick={() => setIndex(5)} className={changeBullets(5)}></button>
                         <button className="btn-outline"><MdOutlineKeyboardArrowRight /></button>

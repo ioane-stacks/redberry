@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { formData } from "../formData";
+import { tempData } from "../tempData";
 import { MdOutlineKeyboardArrowLeft } from 'react-icons/md';
 import { BsDash } from 'react-icons/bs'
 
 const TechnicalSkillSet = ({ setTechInfo }) => {
+    const [oSkill, setOSkill] = useState([]);
     const [skills, setSkills] = useState([]);
     const [skill, setSkill] = useState(0);
     const [toggle, setToggle] = useState(false);
@@ -11,28 +13,23 @@ const TechnicalSkillSet = ({ setTechInfo }) => {
     const [experience, setExperience] = useState('');
     const url = 'https://bootcamp-2022.devtest.ge/api/skills';
 
-    const [items, setItems] = useState([]);
-
     const fetchData = useCallback(async () => {
         const response = await fetch(url);
         if (response.status >= 200 && response.status <= 299) {
             const data = await response.json();
             setSkills(data);
+            setOSkill(data);
         }
     }, []);
 
     const removeSelectedItem = (name) => {
-        const newItem = items.filter(x => x.itemName !== name);
-        const updateSkills = items.filter(x => x.itemName === name);
-        setSkills([...skills, { id: updateSkills[0].id, title: updateSkills[0].itemName }].sort());
+        const newItem = tempData.skills.filter(x => x.itemName !== name);
+        const updateSkills = tempData.skills.filter(x => x.itemName === name);
+        setSkills([...skills, { id: updateSkills[0].id, title: updateSkills[0].itemName }]);
         formData.skills = formData.skills.filter(x => x.id !== updateSkills[0].id);
-        console.log(formData.skills);
-        setItems(newItem);
+        tempData.skills = newItem;
     }
 
-    useEffect(() => {
-        fetchData();
-    }, []);
 
     const addExp = (e) => {
         e.preventDefault();
@@ -42,12 +39,12 @@ const TechnicalSkillSet = ({ setTechInfo }) => {
                 "experience": Number(experience)
             };
             formData.skills.push(temp);
-            setItems([...items, {
+            tempData.skills.push({
                 id: skill,
                 experience: Number(experience),
                 itemName: skills.find(x => x.id === skill).title,
                 itemExperience: Number(experience)
-            }]);
+            });
             setSkills(skills.filter(x => x.id !== skill));
             setSkill(0);
             setExperience('');
@@ -56,33 +53,40 @@ const TechnicalSkillSet = ({ setTechInfo }) => {
 
 
     const checkValidation = () => {
-        if (items.length >= 1) {
+        if (tempData.skills.length >= 1 || formData.skills.length > 0) {
             setTechInfo(true);
         } else {
             setTechInfo(false);
         }
     }
 
+    useEffect(() => {
+        fetchData();
+    }, []);
 
     useEffect(() => {
         checkValidation();
-    }, []);
+    }, [checkValidation]);
 
     const DropdownToggle = () => {
+        setSkills(oSkill);
+        console.log(skills.filter((x, i) => x.id !== skills.filter((u, j) => i !== j).map(u => u.id)[0]));
+
+        let newData = skills.filter(x => x.id !== tempData.skills.filter(u => u.id == x.id).map(u => u.id)[0]);
+
         return (
             <ul>
-                {skills.map((data) => {
+                {skills.length && newData.map((data) => {
                     const { id, title } = data;
                     return <li key={id} onClick={() => { setSkill(id); setToggle(false) }}>{title}</li>
                 })}
             </ul>
         );
-
     }
 
     const ShowAddedItems = () => {
         return (
-            items.map((data, i) => {
+            tempData.skills.map((data, i) => {
                 const { itemName, itemExperience } = data;
                 return <div className="selected mb-1" key={i}>
                     <span>{itemName}</span>
@@ -93,6 +97,7 @@ const TechnicalSkillSet = ({ setTechInfo }) => {
         );
     }
 
+
     return (
         <>
             <div className="select" onClick={() => setToggle(!toggle)}>
@@ -100,7 +105,7 @@ const TechnicalSkillSet = ({ setTechInfo }) => {
                 <span className="sign dropdown"><MdOutlineKeyboardArrowLeft /></span>
             </div>
             {toggle && <DropdownToggle />}
-            <input type="number" className="mt-2" value={experience} onChange={(e) => setExperience(e.target.value)} placeholder='Experience Duration in Years' required />
+            <input type="number" className="mt-2" value={experience} onChange={(e) => setExperience(e.target.value)} placeholder='Experience Duration in Years' />
             <button className="btn squared mb-3" onClick={addExp}>Add a Programming Language</button>
             {formData.skills.length > 0 && <ShowAddedItems />}
         </>
