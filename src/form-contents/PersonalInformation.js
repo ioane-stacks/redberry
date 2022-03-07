@@ -41,7 +41,7 @@ const PersonalInformation = ({ setPersInfo }) => {
         formData.first_name = firstName;
         formData.last_name = lastName;
         formData.email = mail;
-        formData.phone = !phoneNumber.length ? ' ' : phoneNumber.split('').filter(x => x !== ' ').join('');
+        formData.phone = !phoneNumber.length ? 'NAN' : phoneNumber.split('').filter(x => x !== ' ').join('');
     }
 
     useEffect(() => {

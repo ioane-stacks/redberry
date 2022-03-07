@@ -5,8 +5,8 @@ import { MdOutlineKeyboardArrowLeft } from 'react-icons/md';
 import { BsDash } from 'react-icons/bs'
 
 const TechnicalSkillSet = ({ setTechInfo }) => {
-    const [oSkill, setOSkill] = useState([]);
     const [skills, setSkills] = useState([]);
+    const [oSkill, setOSkill] = useState(skills);
     const [skill, setSkill] = useState(0);
     const [toggle, setToggle] = useState(false);
 
@@ -25,7 +25,7 @@ const TechnicalSkillSet = ({ setTechInfo }) => {
     const removeSelectedItem = (name) => {
         const newItem = tempData.skills.filter(x => x.itemName !== name);
         const updateSkills = tempData.skills.filter(x => x.itemName === name);
-        setSkills([...skills, { id: updateSkills[0].id, title: updateSkills[0].itemName }]);
+        setSkills([...skills, { id: updateSkills[0].id, title: updateSkills[0].itemName }].filter(x => x.id !== tempData.skills.filter(u => u.id == x.id).map(u => u.id)[0]));
         formData.skills = formData.skills.filter(x => x.id !== updateSkills[0].id);
         tempData.skills = newItem;
     }
@@ -68,12 +68,12 @@ const TechnicalSkillSet = ({ setTechInfo }) => {
         checkValidation();
     }, [checkValidation]);
 
-    const DropdownToggle = () => {
+    useEffect(() => {
         setSkills(oSkill);
-        console.log(skills.filter((x, i) => x.id !== skills.filter((u, j) => i !== j).map(u => u.id)[0]));
+    }, [removeSelectedItem]);
 
-        let newData = skills.filter(x => x.id !== tempData.skills.filter(u => u.id == x.id).map(u => u.id)[0]);
-
+    const DropdownToggle = () => {
+        const newData = skills.filter(x => x.id !== tempData.skills.filter(u => u.id == x.id).map(u => u.id)[0]);
         return (
             <ul>
                 {skills.length && newData.map((data) => {
@@ -105,9 +105,9 @@ const TechnicalSkillSet = ({ setTechInfo }) => {
                 <span className="sign dropdown"><MdOutlineKeyboardArrowLeft /></span>
             </div>
             {toggle && <DropdownToggle />}
-            <input type="number" className="mt-2" value={experience} onChange={(e) => setExperience(e.target.value)} placeholder='Experience Duration in Years' />
+            <input type="number" min="0" className="mt-2" value={experience} onChange={(e) => setExperience(e.target.value)} placeholder='Experience Duration in Years' />
             <button className="btn squared mb-3" onClick={addExp}>Add a Programming Language</button>
-            {formData.skills.length > 0 && <ShowAddedItems />}
+            {skills.length && <ShowAddedItems />}
         </>
     );
 }
