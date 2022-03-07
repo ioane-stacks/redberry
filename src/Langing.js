@@ -14,9 +14,8 @@ const Langing = () => {
                 <Route path="/FormPage">
                     <FormPage />
                 </Route>
-                <Route path="/FormPage/:id" children={<FormPage />}></Route>
                 <Route path="*">
-                    <h2>No such Page</h2>
+                    {console.log('Nothing Found :(')}
                 </Route>
             </Switch>
         </Router>

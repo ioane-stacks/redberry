@@ -363,3 +363,7 @@ ul li:hover {
 .btn-fill:disabled {
   opacity: 0.2;
 }
+
+.dis {
+  opacity: 0.2;
+}

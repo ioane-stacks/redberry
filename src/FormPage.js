@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link, useParams } from "react-router-dom";
 import PersonalInformation from "./form-contents/PersonalInformation";
 import TechnicalSkillSet from "./form-contents/TechnicalSkillSet";
 import { data } from './data';
@@ -8,7 +8,11 @@ import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from 'react-i
 import axios from "axios";
 const FormPage = () => {
     const [index, setIndex] = useState(1);
-    const { questionName, descriptionName, description } = data[index];
+    const { questionName, descriptionName, description } = data[index - 1];
+
+    //CONTENTS
+    const [persInfo, setPersInfo] = useState(false);
+    const [techInfo, setTechInfo] = useState(false);
 
     const postData = async () => {
         axios.post('https://bootcamp-2022.devtest.ge/api/application', formData)
@@ -23,6 +27,9 @@ const FormPage = () => {
         // postData();
     }
 
+    const changeBullets = (indx) => {
+        return index === indx ? 'btn-fill' : 'btn-fill dis';
+    }
 
     return (
         <div className="container">
@@ -30,24 +37,16 @@ const FormPage = () => {
                 <div className="container-inner">
                     <h1>{questionName}</h1>
                     <form className="form-app" method="POST" onSubmit={submitHandler}>
-                        <Router>
-                            <switch>
-                                <Route path="/FormPage/">
-                                    <PersonalInformation />
-                                </Route>
-                                <Route path="/FormPage/">
-                                    <TechnicalSkillSet />
-                                </Route>
-                            </switch>
-                        </Router>
+                        {index === 1 && <PersonalInformation setPersInfo={setPersInfo} />}
+                        {(persInfo && index === 2) && <TechnicalSkillSet setTechIfo={setTechInfo} />}
                     </form>
                     <div className="pagination">
                         <button className="btn-outline"><MdOutlineKeyboardArrowLeft /></button>
-                        <button className="btn-fill"></button>
-                        <button className="btn-fill" disabled></button>
-                        <button className="btn-fill" disabled></button>
-                        <button className="btn-fill" disabled></button>
-                        <button className="btn-fill" disabled></button>
+                        <button onClick={() => setIndex(1)} className={changeBullets(1)}></button>
+                        <button onClick={() => setIndex(2)} className={changeBullets(2)} disabled={persInfo ? '' : 'disabled'}></button>
+                        <button onClick={() => setIndex(3)} className={changeBullets(3)}></button>
+                        <button onClick={() => setIndex(4)} className={changeBullets(4)}></button>
+                        <button onClick={() => setIndex(5)} className={changeBullets(5)}></button>
                         <button className="btn-outline"><MdOutlineKeyboardArrowRight /></button>
                     </div>
                 </div>
