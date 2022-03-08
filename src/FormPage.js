@@ -4,6 +4,8 @@ import PersonalInformation from "./form-contents/PersonalInformation";
 import TechnicalSkillSet from "./form-contents/TechnicalSkillSet";
 import Covid from "./form-contents/Covid";
 import RedberrianInsights from "./form-contents/RedberrianInsights";
+import SubmitPage from "./form-contents/SubmitPage";
+import ThanksForJoining from "./form-contents/ThanksForJoining";
 
 import { data } from './data';
 import { tempData } from "./tempData";
@@ -20,6 +22,7 @@ const FormPage = () => {
     const [techInfo, setTechInfo] = useState(false);
     const [covid, setCovid] = useState(false);
     const [redberrianInsights, setRedberrianInsights] = useState(false);
+    const [submited, setSubmited] = useState(false);
 
     const postData = async () => {
         axios.post('https://bootcamp-2022.devtest.ge/api/application', formData, {
@@ -28,7 +31,12 @@ const FormPage = () => {
                 "Accept": "application/json",
             }
         })
-            .then(resp => console.log(resp))
+            .then(() => {
+                setSubmited(true);
+                setTimeout(() => {
+                    returnMain();
+                }, 3000);
+            })
             .catch(err => console.log(err));
     }
 
@@ -41,16 +49,19 @@ const FormPage = () => {
         formData.skills = tempData.skills;
         formData.work_preference = tempData.work_preference;
         formData.had_covid = Boolean(tempData.had_covid);
-        formData.had_covid_at = tempData.had_covid_at === 'NAN' ? '1111-11-11' : tempData.had_covid_at;
+        formData.had_covid_at = tempData.had_covid_at === 'NAN' ? '0001-01-01' : tempData.had_covid_at;
         formData.vaccinated = Boolean(tempData.vaccinated);
-        formData.vaccinated_at = tempData.vaccinated_at === 'NAN' ? '1111-11-11' : tempData.vaccinated_at;
+        formData.vaccinated_at = tempData.vaccinated_at === 'NAN' ? '0001-01-01' : tempData.vaccinated_at;
         formData.will_organize_devtalk = Boolean(tempData.will_organize_devtalk);
         formData.devtalk_topic = tempData.devtalk_topic;
         formData.something_special = tempData.something_special;
     }
 
-    const submitHandler = (e) => {
-        e.preventDefault();
+    const returnMain = () => {
+        window.location.href = '/redberry';
+    }
+
+    const sendData = () => {
         setConfirmedData();
         postData();
     }
@@ -73,8 +84,6 @@ const FormPage = () => {
             case 4:
                 setIndex(redberrianInsights ? index + 1 : index);
                 break;
-            case 5:
-                break;
         }
     }
     const prevPage = () => {
@@ -86,12 +95,12 @@ const FormPage = () => {
             <section className="questionaire">
                 <div className="container-inner">
                     <h1>{questionName}</h1>
-                    <form className="form-app" method="POST" onSubmit={submitHandler}>
+                    <div className="form-app">
                         {index === 1 && <PersonalInformation setPersInfo={setPersInfo} />}
                         {(persInfo && index === 2) && <TechnicalSkillSet setTechInfo={setTechInfo} />}
                         {(techInfo && persInfo && index === 3) && <Covid setCovid={setCovid} />}
                         {(covid && techInfo && persInfo && index === 4) && <RedberrianInsights setRedberrianInsights={setRedberrianInsights} />}
-                    </form>
+                    </div>
                     <div className="pagination">
                         <button className="btn-outline" onClick={prevPage}><MdOutlineKeyboardArrowLeft /></button>
                         <button onClick={() => setIndex(1)} className={changeBullets(1)}></button>
@@ -109,6 +118,8 @@ const FormPage = () => {
                     <p>{description}</p>
                 </div>
             </section>
+            {(redberrianInsights && covid && techInfo && persInfo && index === 5) && <SubmitPage sendData={sendData} prevPage={prevPage} />}
+            {submited && <ThanksForJoining />}
         </div >
     );
 }

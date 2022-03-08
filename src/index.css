@@ -94,9 +94,9 @@ button {
 }
 
 .rocketman {
-  width: 35rem;
+  width: 33rem;
   position: relative;
-  top: -58px;
+  top: -32px;
   left: -33px;
 }
 
@@ -457,6 +457,26 @@ textarea::-webkit-scrollbar {
 .container-submit {
   width: 100vw;
   height: 100vh;
+  top: 0;
+  left: 0;
   position: absolute;
-  background-color: var(--primary-bg);
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  background-image: var(--primary-bg);
+  z-index: 3;
+}
+
+.container-submit button {
+  width: 400px;
+  font-size: 28px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+}
+
+
+.container-submit .link {
+  font-weight: 100;
 }

@@ -6,10 +6,10 @@ import rocketman from './images/rocketman.png';
 const LangingPage = ({ disp }) => {
     return (
         <div className="langing-page" style={{ display: disp }}>
-            <h1>welcome rocketeer !</h1>
+            <h1>Welcome Rocketeer !</h1>
             <div className="lp-form">
-                <Link className="btn circled" to="/FormPage">start questionaire</Link>
-                <Link className="btn link" to="#">submitted applications</Link>
+                <Link className="btn circled" to="/FormPage">Start Questionaire</Link>
+                <Link className="btn link" to="#">Submitted Applications</Link>
             </div>
             <img src={rocketman} alt="rocketman" className="rocketman" />
         </div>
