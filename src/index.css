@@ -480,3 +480,55 @@ textarea::-webkit-scrollbar {
 .container-submit .link {
   font-weight: 100;
 }
+
+.submittedApp {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-image: var(--primary-bg);
+  position: absolute;
+  z-index: 3;
+}
+
+.subApp-container {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.subApp-container h1 {
+  letter-spacing: 0.11em;
+  font-size: 3.2rem;
+  color: #fff;
+}
+
+.subApp-dropDown {
+  width: 100%;
+  height: 65px;
+  background-color: var(--redberry-red);
+  position: relative;
+  align-items: center;
+  display: flex;
+  padding: 0 20px;
+  cursor: pointer;
+}
+
+.subApp-dropDown span {
+  font-size: 22px;
+  color: #fff;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 100;
+}
+
+.inform {
+  width: 100%;
+  height: 200px;
+  background-color: #fff;
+  display: none;
+}
+
+.d-block {
+  display: block;
+}

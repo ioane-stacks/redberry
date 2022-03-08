@@ -36,7 +36,7 @@ const FormPage = () => {
                     returnMain();
                 }, 3000);
             })
-            .catch(err => console.log(err));
+            .catch((err) => alert('Something went wrong 🥺 please try again | error: ', err));
     }
 
     const dataObject = {};

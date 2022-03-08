@@ -9,7 +9,7 @@ const LangingPage = ({ disp }) => {
             <h1>Welcome Rocketeer !</h1>
             <div className="lp-form">
                 <Link className="btn circled" to="/FormPage">Start Questionaire</Link>
-                <Link className="btn link" to="#">Submitted Applications</Link>
+                <Link className="btn link" to="/SubmittedApplications">Submitted Applications</Link>
             </div>
             <img src={rocketman} alt="rocketman" className="rocketman" />
         </div>
