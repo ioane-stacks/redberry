@@ -39,6 +39,27 @@ const FormPage = () => {
         return index === indx ? 'btn-fill' : 'btn-fill dis';
     }
 
+    const nextPage = () => {
+        switch (index) {
+            case 1:
+                setIndex(persInfo ? index + 1 : index);
+                break;
+            case 2:
+                setIndex(techInfo ? index + 1 : index);
+                break;
+            case 3:
+                setIndex(techInfo ? index + 1 : index);
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
+        }
+    }
+    const prevPage = () => {
+        setIndex(index === 1 ? 1 : index - 1);
+    }
+
     return (
         <div className="container">
             <section className="questionaire">
@@ -47,16 +68,16 @@ const FormPage = () => {
                     <form className="form-app" method="POST" onSubmit={submitHandler}>
                         {index === 1 && <PersonalInformation setPersInfo={setPersInfo} />}
                         {(persInfo && index === 2) && <TechnicalSkillSet setTechInfo={setTechInfo} />}
-                        {(techInfo && persInfo && index === 3) && <Covid setTechInfo={setCovid} />}
+                        {(techInfo && persInfo && index === 3) && <Covid setCovid={setCovid} />}
                     </form>
                     <div className="pagination">
-                        <button className="btn-outline"><MdOutlineKeyboardArrowLeft /></button>
+                        <button className="btn-outline" onClick={prevPage}><MdOutlineKeyboardArrowLeft /></button>
                         <button onClick={() => setIndex(1)} className={changeBullets(1)}></button>
                         <button onClick={() => setIndex(2)} className={changeBullets(2)} disabled={persInfo ? '' : 'disabled'}></button>
                         <button onClick={() => setIndex(3)} className={changeBullets(3)} disabled={persInfo && techInfo ? '' : 'disabled'}></button>
-                        <button onClick={() => setIndex(4)} className={changeBullets(4)}></button>
+                        <button onClick={() => setIndex(4)} className={changeBullets(4)} disabled={persInfo && techInfo && covid ? '' : 'disabled'}></button>
                         <button onClick={() => setIndex(5)} className={changeBullets(5)}></button>
-                        <button className="btn-outline"><MdOutlineKeyboardArrowRight /></button>
+                        <button className="btn-outline" onClick={nextPage}><MdOutlineKeyboardArrowRight /></button>
                     </div>
                 </div>
             </section >

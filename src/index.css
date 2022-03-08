@@ -155,7 +155,7 @@ button {
 }
 
 ::-webkit-scrollbar-track {
-  background-color: #0C0D0E;
+  background-color: #151718;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -288,6 +288,14 @@ ul li:hover {
   margin-top: 4rem;
 }
 
+.mt-5 {
+  margin-top: 5rem;
+}
+
+.mt-6 {
+  margin-top: 6rem;
+}
+
 .mb-1 {
   margin-bottom: 1rem;
 }
@@ -302,6 +310,14 @@ ul li:hover {
 
 .mb-4 {
   margin-bottom: 4rem;
+}
+
+.mb-5 {
+  margin-bottom: 5rem;
+}
+
+.mb-6 {
+  margin-bottom: 6rem;
 }
 
 /* MARGINS */
@@ -405,4 +421,9 @@ ul li:hover {
 
 input[type='radio'] {
   width: 25px;
+}
+
+::-webkit-calendar-picker-indicator {
+  background-image: url(images/calendar.png);
+  background-size: 16px;
 }
