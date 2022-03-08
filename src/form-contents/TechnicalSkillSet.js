@@ -5,7 +5,7 @@ import { MdOutlineKeyboardArrowLeft } from 'react-icons/md';
 import { BsDash } from 'react-icons/bs'
 
 const TechnicalSkillSet = ({ setTechInfo }) => {
-    const [skills, setSkills] = useState([]);
+    const [skills, setSkills] = useState(['']);
     const [oSkill, setOSkill] = useState(skills);
     const [skill, setSkill] = useState(0);
     const [toggle, setToggle] = useState(false);

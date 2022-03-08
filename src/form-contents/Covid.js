@@ -11,18 +11,19 @@ const Covid = ({ setCovid }) => {
     const localTime = () => { return new Date().toLocaleDateString('en-GB').split('/').reverse().join('-') }
 
     const validateCovidForm = () => {
-        if (preferWork.length && contactCovid !== undefined && vaccinated !== undefined && contactDate.length && vaccinatedDate.length) {
+        setContactDate(contactCovid === 'false' ? 'NAN' : contactDate);
+        setVaccinatedDate(vaccinated === 'false' ? 'NAN' : vaccinatedDate);
+
+        if (preferWork.length && contactCovid.length && vaccinated.length && contactDate.length && vaccinatedDate.length) {
+            formData.had_covid_at = contactDate;
+            formData.vaccinated_at = contactDate;
             formData.work_preference = preferWork;
             formData.had_covid = contactCovid;
-            formData.had_covid_at = contactCovid === 'true' ? contactDate : 'NAN';
             formData.vaccinated = vaccinated;
-            formData.vaccinated_at = vaccinated === 'true' ? vaccinatedDate : 'NAN';
             setCovid(true);
         } else {
             setCovid(false);
         }
-
-        console.log(formData);
     }
 
     useEffect(() => {

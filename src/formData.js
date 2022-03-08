@@ -5,12 +5,12 @@ export const formData = {
     "email": "",
     "phone": "",
     "skills": [],
-    "work_preference": "from_home",
-    "had_covid": true,
-    "had_covid_at": "2022-02-23",
-    "vaccinated": true,
-    "vaccinated_at": "2022-02-23",
-    "will_organize_devtalk": true,
-    "devtalk_topic": "I would ...",
-    "something_special": "I am special!"
+    "work_preference": "",
+    "had_covid": false,
+    "had_covid_at": "",
+    "vaccinated": false,
+    "vaccinated_at": "",
+    "will_organize_devtalk": false,
+    "devtalk_topic": "",
+    "something_special": ""
 }
