@@ -1,5 +1,4 @@
 export const tempData = {
-    "token": "0c8c8116-ecfc-4222-a4a4-9091e675f8d9",
     "first_name": "",
     "last_name": "",
     "email": "",

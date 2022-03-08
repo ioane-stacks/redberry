@@ -11,7 +11,7 @@
   --primary-bg: radial-gradient(50% 50% at 50% 50%, #0C0D0E 0%, #151718 73.44%);
   --primary-stroke: #525557;
   --redberry-red: #FE3B1F;
-  --redberry-lightred: #f37967;
+  --redberry-lightred: #f04f36;
   --validated: #5bc074;
 }
 
@@ -524,11 +524,47 @@ textarea::-webkit-scrollbar {
 
 .inform {
   width: 100%;
-  height: 200px;
+  padding: 50px 70px 50px 180px;
   background-color: #fff;
   display: none;
+  grid-template-columns: auto auto;
 }
 
-.d-block {
-  display: block;
+.inform h4 {
+  font-family: 'Montserrat';
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.5rem;
+  text-decoration: underline;
+}
+
+.inform p {
+  color: black;
+  font-family: 'Montserrat';
+  font-style: italic;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.d-grid {
+  display: grid;
+}
+
+.c-gray {
+  color: #454545 !important;
+}
+
+.bg-light {
+  background-color: var(--redberry-lightred);
+}
+
+.infoGrid-1 {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 30% 70%;
+  gap: 3rem;
+}
+
+.arrow-up {
+  transform: rotate(180deg);
 }
