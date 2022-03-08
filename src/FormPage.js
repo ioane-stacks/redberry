@@ -9,7 +9,6 @@ import ThanksForJoining from "./form-contents/ThanksForJoining";
 
 import { data } from './data';
 import { tempData } from "./tempData";
-import { formData } from './formData';
 import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from 'react-icons/md';
 import axios from "axios";
 
@@ -25,7 +24,7 @@ const FormPage = () => {
     const [submited, setSubmited] = useState(false);
 
     const postData = async () => {
-        axios.post('https://bootcamp-2022.devtest.ge/api/application', formData, {
+        axios.post('https://bootcamp-2022.devtest.ge/api/application', JSON.stringify(dataObject), {
             headers: {
                 "Content-type": "application/json; charset=UTF-8",
                 "Accept": "application/json",
@@ -40,21 +39,23 @@ const FormPage = () => {
             .catch(err => console.log(err));
     }
 
+    const dataObject = {};
 
-    const setConfirmedData = () => {
-        formData.first_name = tempData.first_name;
-        formData.last_name = tempData.last_name;
-        formData.email = tempData.email;
-        formData.phone = tempData.phone;
-        formData.skills = tempData.skills;
-        formData.work_preference = tempData.work_preference;
-        formData.had_covid = Boolean(tempData.had_covid);
-        formData.had_covid_at = tempData.had_covid_at === 'NAN' ? '0001-01-01' : tempData.had_covid_at;
-        formData.vaccinated = Boolean(tempData.vaccinated);
-        formData.vaccinated_at = tempData.vaccinated_at === 'NAN' ? '0001-01-01' : tempData.vaccinated_at;
-        formData.will_organize_devtalk = Boolean(tempData.will_organize_devtalk);
-        formData.devtalk_topic = tempData.devtalk_topic;
-        formData.something_special = tempData.something_special;
+    const createData = () => {
+        dataObject.token = "0c8c8116-ecfc-4222-a4a4-9091e675f8d9";
+        dataObject.first_name = tempData.first_name;
+        dataObject.last_name = tempData.last_name;
+        dataObject.email = tempData.email;
+        if (tempData.phone !== 'NULL') dataObject.phone = tempData.phone;
+        dataObject.skills = tempData.skills;
+        dataObject.work_preference = tempData.work_preference;
+        dataObject.had_covid = Boolean(tempData.had_covid);
+        if (tempData.had_covid_at !== 'NAN') dataObject.had_covid_at = tempData.had_covid_at;
+        dataObject.vaccinated = Boolean(tempData.vaccinated);
+        if (tempData.vaccinated_at !== 'NAN') dataObject.vaccinated_at = tempData.vaccinated_at;
+        dataObject.will_organize_devtalk = Boolean(tempData.will_organize_devtalk);
+        if (tempData.devtalk_topic !== 'NULL') dataObject.devtalk_topic = tempData.devtalk_topic;
+        dataObject.something_special = tempData.something_special;
     }
 
     const returnMain = () => {
@@ -62,7 +63,7 @@ const FormPage = () => {
     }
 
     const sendData = () => {
-        setConfirmedData();
+        createData();
         postData();
     }
 
