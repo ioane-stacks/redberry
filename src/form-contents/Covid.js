@@ -97,8 +97,8 @@ const Covid = ({ setCovid }) => {
 
                 {vaccinated === 'true' && <>
                     <h2>When did you get your last covid vaccine?</h2>
-                    <input type="date" min="2019-12-1" value={vaccinatedDate} max={localTime()} onChange={e => setVaccinatedDate(e.target.value)} className="mt-2 mb-6" />
-
+                    <input
+                        type="date" min="2019-12-1" value={vaccinatedDate} max={localTime()} onChange={e => setVaccinatedDate(e.target.value)} className="mt-2 mb-6" />
                 </>}
             </div>
         </section >

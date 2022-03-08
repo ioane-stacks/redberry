@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import PersonalInformation from "./form-contents/PersonalInformation";
 import TechnicalSkillSet from "./form-contents/TechnicalSkillSet";
 import Covid from "./form-contents/Covid";
+import RedberrianInsights from "./form-contents/RedberrianInsights";
 
 import { data } from './data';
 import { formData } from './formData';
@@ -17,6 +18,7 @@ const FormPage = () => {
     const [persInfo, setPersInfo] = useState(false);
     const [techInfo, setTechInfo] = useState(false);
     const [covid, setCovid] = useState(false);
+    const [redberrianInsights, setRedberrianInsights] = useState(false);
 
     const postData = async () => {
         axios.post('https://bootcamp-2022.devtest.ge/api/application', formData, {
@@ -36,7 +38,7 @@ const FormPage = () => {
     }
 
     const changeBullets = (indx) => {
-        return index === indx ? 'btn-fill' : 'btn-fill dis';
+        return indx <= index ? 'btn-fill' : 'btn-fill dis';
     }
 
     const nextPage = () => {
@@ -51,6 +53,7 @@ const FormPage = () => {
                 setIndex(techInfo ? index + 1 : index);
                 break;
             case 4:
+                setIndex(covid ? index + 1 : index);
                 break;
             case 5:
                 break;
@@ -69,6 +72,7 @@ const FormPage = () => {
                         {index === 1 && <PersonalInformation setPersInfo={setPersInfo} />}
                         {(persInfo && index === 2) && <TechnicalSkillSet setTechInfo={setTechInfo} />}
                         {(techInfo && persInfo && index === 3) && <Covid setCovid={setCovid} />}
+                        {(covid && techInfo && persInfo && index === 4) && <RedberrianInsights setRedberrianInsights={setRedberrianInsights} />}
                     </form>
                     <div className="pagination">
                         <button className="btn-outline" onClick={prevPage}><MdOutlineKeyboardArrowLeft /></button>
