@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { formData } from "../formData";
 import { tempData } from "../tempData";
 import { MdOutlineKeyboardArrowLeft } from 'react-icons/md';
 import { BsDash } from 'react-icons/bs'
@@ -26,7 +25,7 @@ const TechnicalSkillSet = ({ setTechInfo }) => {
         const newItem = tempData.skills.filter(x => x.itemName !== name);
         const updateSkills = tempData.skills.filter(x => x.itemName === name);
         setSkills([...skills, { id: updateSkills[0].id, title: updateSkills[0].itemName }].filter(x => x.id !== tempData.skills.filter(u => u.id == x.id).map(u => u.id)[0]));
-        formData.skills = formData.skills.filter(x => x.id !== updateSkills[0].id);
+        tempData.skills = tempData.skills.filter(x => x.id !== updateSkills[0].id);
         tempData.skills = newItem;
     }
 
@@ -34,11 +33,6 @@ const TechnicalSkillSet = ({ setTechInfo }) => {
     const addExp = (e) => {
         e.preventDefault();
         if (skill > 0 && experience > 0) {
-            const temp = {
-                "id": skill,
-                "experience": Number(experience)
-            };
-            formData.skills.push(temp);
             tempData.skills.push({
                 id: skill,
                 experience: Number(experience),
@@ -53,7 +47,7 @@ const TechnicalSkillSet = ({ setTechInfo }) => {
 
 
     const checkValidation = () => {
-        if (tempData.skills.length >= 1 || formData.skills.length > 0) {
+        if (tempData.skills.length >= 1 || tempData.skills.length > 0) {
             setTechInfo(true);
         } else {
             setTechInfo(false);

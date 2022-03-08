@@ -6,6 +6,7 @@ import Covid from "./form-contents/Covid";
 import RedberrianInsights from "./form-contents/RedberrianInsights";
 
 import { data } from './data';
+import { tempData } from "./tempData";
 import { formData } from './formData';
 import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from 'react-icons/md';
 import axios from "axios";
@@ -32,9 +33,26 @@ const FormPage = () => {
     }
 
 
+    const setConfirmedData = () => {
+        formData.first_name = tempData.first_name;
+        formData.last_name = tempData.last_name;
+        formData.email = tempData.email;
+        formData.phone = tempData.phone;
+        formData.skills = tempData.skills;
+        formData.work_preference = tempData.work_preference;
+        formData.had_covid = Boolean(tempData.had_covid);
+        formData.had_covid_at = tempData.had_covid_at === 'NAN' ? '1111-11-11' : tempData.had_covid_at;
+        formData.vaccinated = Boolean(tempData.vaccinated);
+        formData.vaccinated_at = tempData.vaccinated_at === 'NAN' ? '1111-11-11' : tempData.vaccinated_at;
+        formData.will_organize_devtalk = Boolean(tempData.will_organize_devtalk);
+        formData.devtalk_topic = tempData.devtalk_topic;
+        formData.something_special = tempData.something_special;
+    }
+
     const submitHandler = (e) => {
         e.preventDefault();
-        // postData();
+        setConfirmedData();
+        postData();
     }
 
     const changeBullets = (indx) => {

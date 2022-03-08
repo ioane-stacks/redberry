@@ -453,3 +453,10 @@ textarea::-webkit-scrollbar {
 .h-2 {
   height: 150px;
 }
+
+.container-submit {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background-color: var(--primary-bg);
+}

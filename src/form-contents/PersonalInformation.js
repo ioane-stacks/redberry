@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { formData } from '../formData';
+import { tempData } from '../tempData';
 
 const PersonalInformation = ({ setPersInfo }) => {
-    const [firstName, setFirstName] = useState(formData.first_name);
-    const [lastName, setLastName] = useState(formData.last_name);
-    const [mail, setMail] = useState(formData.email);
-    const [phoneNumber, setPhoneNumber] = useState(!formData.phone.includes('+995') && formData.phone.length < 15 ? '' : formData.phone);
+    const [firstName, setFirstName] = useState(tempData.first_name);
+    const [lastName, setLastName] = useState(tempData.last_name);
+    const [mail, setMail] = useState(tempData.email);
+    const [phoneNumber, setPhoneNumber] = useState(!tempData.phone.includes('+995') && tempData.phone.length < 15 ? '' : tempData.phone);
 
     const checkPhoneNumber = () => {
         setPhoneNumber(phoneNumber.replace(/[^+|0-9]/g, ''));
@@ -38,10 +38,10 @@ const PersonalInformation = ({ setPersInfo }) => {
     }
 
     const setData = () => {
-        formData.first_name = firstName;
-        formData.last_name = lastName;
-        formData.email = mail;
-        formData.phone = !phoneNumber.length ? 'NAN' : phoneNumber.split('').filter(x => x !== ' ').join('');
+        tempData.first_name = firstName;
+        tempData.last_name = lastName;
+        tempData.email = mail;
+        tempData.phone = !phoneNumber.length ? 'NULL' : phoneNumber.split('').filter(x => x !== ' ').join('');
     }
 
     useEffect(() => {

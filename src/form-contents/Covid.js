@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { formData } from '../formData';
+import { tempData } from '../tempData';
 
 const Covid = ({ setCovid }) => {
-    const [preferWork, setPreferWork] = useState(formData.work_preference);
-    const [contactCovid, setContactCovid] = useState(formData.had_covid);
-    const [contactDate, setContactDate] = useState(formData.had_covid_at);
-    const [vaccinated, setVaccinated] = useState(formData.vaccinated);
-    const [vaccinatedDate, setVaccinatedDate] = useState(formData.vaccinated_at);
+    const [preferWork, setPreferWork] = useState(tempData.work_preference);
+    const [contactCovid, setContactCovid] = useState(tempData.had_covid);
+    const [contactDate, setContactDate] = useState(tempData.had_covid_at);
+    const [vaccinated, setVaccinated] = useState(tempData.vaccinated);
+    const [vaccinatedDate, setVaccinatedDate] = useState(tempData.vaccinated_at);
 
     const localTime = () => { return new Date().toLocaleDateString('en-GB').split('/').reverse().join('-') }
 
@@ -14,12 +14,14 @@ const Covid = ({ setCovid }) => {
         setContactDate(contactCovid === 'false' ? 'NAN' : contactDate);
         setVaccinatedDate(vaccinated === 'false' ? 'NAN' : vaccinatedDate);
 
+        console.log(contactDate);
+
         if (preferWork.length && contactCovid.length && vaccinated.length && contactDate.length && vaccinatedDate.length) {
-            formData.had_covid_at = contactDate;
-            formData.vaccinated_at = contactDate;
-            formData.work_preference = preferWork;
-            formData.had_covid = contactCovid;
-            formData.vaccinated = vaccinated;
+            tempData.had_covid_at = contactDate;
+            tempData.vaccinated_at = contactDate;
+            tempData.work_preference = preferWork;
+            tempData.had_covid = contactCovid;
+            tempData.vaccinated = contactCovid;
             setCovid(true);
         } else {
             setCovid(false);
@@ -63,10 +65,10 @@ const Covid = ({ setCovid }) => {
             <div className="checking-form">
                 <h2>how would you prefer to work?</h2>
                 <div className="checking-grid mt-1 mb-4">
-                    <input type="radio" id="fso" name="prefer_work" value="From_sairme_office" onChange={e => setPreferWork(e.target.value)} />
+                    <input type="radio" id="fso" name="prefer_work" value="from_sairme_office" onChange={e => setPreferWork(e.target.value)} />
                     <label htmlFor="fso">From Sairme Office</label>
 
-                    <input type="radio" id="from_home" name="prefer_work" value="From_home" onChange={e => setPreferWork(e.target.value)} />
+                    <input type="radio" id="from_home" name="prefer_work" value="from_home" onChange={e => setPreferWork(e.target.value)} />
                     <label htmlFor="from_home">From Home</label>
 
                     <input type="radio" id="hybrid" name="prefer_work" value="hybrid" onChange={e => setPreferWork(e.target.value)} />
