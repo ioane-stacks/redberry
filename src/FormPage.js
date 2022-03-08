@@ -50,10 +50,10 @@ const FormPage = () => {
                 setIndex(techInfo ? index + 1 : index);
                 break;
             case 3:
-                setIndex(techInfo ? index + 1 : index);
+                setIndex(covid ? index + 1 : index);
                 break;
             case 4:
-                setIndex(covid ? index + 1 : index);
+                setIndex(redberrianInsights ? index + 1 : index);
                 break;
             case 5:
                 break;
@@ -80,7 +80,7 @@ const FormPage = () => {
                         <button onClick={() => setIndex(2)} className={changeBullets(2)} disabled={persInfo ? '' : 'disabled'}></button>
                         <button onClick={() => setIndex(3)} className={changeBullets(3)} disabled={persInfo && techInfo ? '' : 'disabled'}></button>
                         <button onClick={() => setIndex(4)} className={changeBullets(4)} disabled={persInfo && techInfo && covid ? '' : 'disabled'}></button>
-                        <button onClick={() => setIndex(5)} className={changeBullets(5)}></button>
+                        <button onClick={() => setIndex(5)} className={changeBullets(5)} disabled={persInfo && techInfo && covid && redberrianInsights ? '' : 'disabled'}></button>
                         <button className="btn-outline" onClick={nextPage}><MdOutlineKeyboardArrowRight /></button>
                     </div>
                 </div>
