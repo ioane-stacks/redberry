@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Switch, Route, Link, useParams } from "react-router-dom";
+import React, { useState } from "react";
+//IMPORT FORM PAGES
 import PersonalInformation from "./form-contents/PersonalInformation";
 import TechnicalSkillSet from "./form-contents/TechnicalSkillSet";
+import Covid from "./form-contents/Covid";
+
 import { data } from './data';
 import { formData } from './formData';
 import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from 'react-icons/md';
 import axios from "axios";
+
 const FormPage = () => {
     const [index, setIndex] = useState(1);
     const { questionName, descriptionName, description } = data[index - 1];
@@ -13,12 +16,17 @@ const FormPage = () => {
     //CONTENTS
     const [persInfo, setPersInfo] = useState(false);
     const [techInfo, setTechInfo] = useState(false);
+    const [covid, setCovid] = useState(false);
 
     const postData = async () => {
-        axios.post('https://bootcamp-2022.devtest.ge/api/application', formData)
+        axios.post('https://bootcamp-2022.devtest.ge/api/application', formData, {
+            headers: {
+                "Content-type": "application/json; charset=UTF-8",
+                "Accept": "application/json",
+            }
+        })
             .then(resp => console.log(resp))
             .catch(err => console.log(err));
-
     }
 
 
@@ -39,6 +47,7 @@ const FormPage = () => {
                     <form className="form-app" method="POST" onSubmit={submitHandler}>
                         {index === 1 && <PersonalInformation setPersInfo={setPersInfo} />}
                         {(persInfo && index === 2) && <TechnicalSkillSet setTechInfo={setTechInfo} />}
+                        {(techInfo && persInfo && index === 3) && <Covid setTechInfo={setCovid} />}
                     </form>
                     <div className="pagination">
                         <button className="btn-outline"><MdOutlineKeyboardArrowLeft /></button>

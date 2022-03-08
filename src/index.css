@@ -3,7 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   user-select: none;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 :root {
@@ -27,6 +27,10 @@ button, p, a, li {
   font-style: normal;
   font-weight: normal;
   color: #fff;
+}
+
+button {
+  overflow: hidden;
 }
 
 /* Langing Page */
@@ -101,10 +105,10 @@ button, p, a, li {
 /* Form */
 .container {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   display: grid;
   grid-template-columns: 50% 50%;
-  overflow: hidden;
+  overflow-x: hidden;
   position: absolute;
   background-color: #fff;
   z-index: 1;
@@ -112,10 +116,9 @@ button, p, a, li {
 
 .container-inner {
   width: 80%;
-  height: 100vh;
   margin-left: auto;
   margin-right: auto;
-  padding: 10vh 0;
+  padding-top: 10vh;
   position: relative;
 }
 
@@ -141,11 +144,23 @@ button, p, a, li {
   width: 62%;
   min-height: 40vh;
   background-color: var(--primary-bg);
-  margin: 50px auto;
-  margin-bottom: 0;
-  max-height: 44vh;
-  overflow-y: scroll;
+  margin: 50px auto 0 auto;
+  /* max-height: 44vh;
+  overflow-y: scroll; */
   position: relative;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #0C0D0E;
+}
+
+::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(to top, transparent, var(--redberry-red), transparent);
+  border-radius: 50%;
 }
 
 .form-app::-webkit-scrollbar {
@@ -157,9 +172,11 @@ button, p, a, li {
 }
 
 .form-app::-webkit-scrollbar-thumb {
-  background-image: linear-gradient(to top, transparent, var(--redberry-lightred), transparent);
+  background-image: linear-gradient(to top, transparent, var(--redberry-red), transparent);
   border-radius: 50%;
 }
+
+
 
 .description {
   width: 100%;
@@ -296,7 +313,8 @@ ul li:hover {
 .pagination {
   width: 30%;
   height: 50px;
-  margin-top: 8rem;
+  margin-top: 6rem;
+  margin-bottom: 4rem;
   display: grid;
   gap: .2rem;
   grid-template-columns: auto auto auto auto auto auto auto;
@@ -366,4 +384,25 @@ ul li:hover {
 
 .dis {
   opacity: 0.2;
+}
+
+.checking-form h2, .checking-grid label {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  color: #000;
+}
+
+.checking-grid {
+  display: grid;
+  grid-template-columns: 50px auto;
+  align-items: center;
+}
+
+.checking-grid label {
+  font-size: 18px;
+}
+
+input[type='radio'] {
+  width: 25px;
 }

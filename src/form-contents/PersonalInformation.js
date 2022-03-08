@@ -5,7 +5,7 @@ const PersonalInformation = ({ setPersInfo }) => {
     const [firstName, setFirstName] = useState(formData.first_name);
     const [lastName, setLastName] = useState(formData.last_name);
     const [mail, setMail] = useState(formData.email);
-    const [phoneNumber, setPhoneNumber] = useState(formData.phone.trim());
+    const [phoneNumber, setPhoneNumber] = useState(!formData.phone.includes('+995') && formData.phone.length < 15 ? '' : formData.phone);
 
     const checkPhoneNumber = () => {
         setPhoneNumber(phoneNumber.replace(/[^+|0-9]/g, ''));

@@ -99,7 +99,7 @@ const TechnicalSkillSet = ({ setTechInfo }) => {
 
 
     return (
-        <>
+        <section>
             <div className="select" onClick={() => setToggle(!toggle)}>
                 <span>{skill > 0 ? skills.find(x => x.id === skill).title : 'Skills'}</span>
                 <span className="sign dropdown"><MdOutlineKeyboardArrowLeft /></span>
@@ -108,7 +108,7 @@ const TechnicalSkillSet = ({ setTechInfo }) => {
             <input type="number" min="0" className="mt-2" value={experience} onChange={(e) => setExperience(e.target.value)} placeholder='Experience Duration in Years' />
             <button className="btn squared mb-3" onClick={addExp}>Add a Programming Language</button>
             {skills.length && <ShowAddedItems />}
-        </>
+        </section>
     );
 }
 
