@@ -65,7 +65,6 @@ const FormPage = () => {
     const sendData = () => {
         createData();
         postData();
-        console.log(dataObject);
     }
 
     const changeBullets = (indx) => {
