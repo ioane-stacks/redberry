@@ -5,7 +5,7 @@ import { BsDash } from 'react-icons/bs'
 import { useFetch } from "../useFetch";
 
 const TechnicalSkillSet = ({ setTechInfo }) => {
-    const [skills, setSkills] = useState(['']);
+    const [skills, setSkills] = useState(['111']);
     const [skill, setSkill] = useState(0);
     const [toggle, setToggle] = useState(false);
 

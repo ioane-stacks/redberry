@@ -16,10 +16,10 @@ const Covid = ({ setCovid }) => {
 
         if (preferWork.length && contactCovid.length && vaccinated.length && contactDate.length && vaccinatedDate.length) {
             tempData.had_covid_at = contactDate;
-            tempData.vaccinated_at = contactDate;
+            tempData.vaccinated_at = vaccinatedDate;
             tempData.work_preference = preferWork;
             tempData.had_covid = contactCovid;
-            tempData.vaccinated = contactCovid;
+            tempData.vaccinated = vaccinated;
             setCovid(true);
         } else {
             setCovid(false);

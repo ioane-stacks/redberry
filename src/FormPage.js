@@ -88,6 +88,7 @@ const FormPage = () => {
                 break;
         }
     }
+
     const prevPage = () => {
         setIndex(index === 1 ? 1 : index - 1);
     }

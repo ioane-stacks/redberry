@@ -8,7 +8,7 @@ const RedberrianInsights = ({ setRedberrianInsights }) => {
 
     const validateRedberrInsights = () => {
         setDevTalkTopic(devTalks === 'false' ? 'NULL' : devTalkTopic);
-        if ((devTalks === 'false' || devTalks === 'true' && devTalkTopic !== null) && somethingSpecial.length) {
+        if ((devTalks === 'false' || devTalks === 'true' && devTalkTopic.trim() !== '') && somethingSpecial.length) {
             tempData.will_organize_devtalk = devTalks;
             tempData.devtalk_topic = devTalkTopic;
             tempData.something_special = somethingSpecial;
@@ -37,7 +37,7 @@ const RedberrianInsights = ({ setRedberrianInsights }) => {
             <div className="checking-form">
                 <h2>Would you attend Devtalks and maybe also organize your own?</h2>
                 <div className="checking-grid mt-1 mb-3">
-                    <input type="radio" id="devtalks" name="devTalks" value={true} onChange={e => { setDevTalkTopic(null); return setDevTalks(e.target.value) }} />
+                    <input type="radio" id="devtalks" name="devTalks" value={true} onChange={e => { setDevTalkTopic(''); return setDevTalks(e.target.value) }} />
                     <label htmlFor="devtalks">Yes</label>
 
                     <input type="radio" id="noDevtalks" name="devTalks" value={false} onChange={e => setDevTalks(e.target.value)} />

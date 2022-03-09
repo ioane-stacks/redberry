@@ -49,7 +49,9 @@ const SubmittedApplications = () => {
                                 <span>{index + 1}</span>
                                 <span className="sign dropdown"><MdOutlineKeyboardArrowLeft id={`arr${index}`} /></span>
                             </div>
+                            {/* INNER CONTAINER */}
                             <div id={`drop${index}`} className="inform">
+                                {/* PERSONAL INFORMATION */}
                                 <div className="infoBlock mb-8">
                                     <h4>Personal Information</h4>
                                     <div className="infoGrid-1 mt-5">
@@ -63,6 +65,8 @@ const SubmittedApplications = () => {
                                         <p className="c-gray">{phone}</p>
                                     </div>
                                 </div>
+                                {/* -------------------------- */}
+                                {/* SKILLSET */}
                                 <div className="infoBlock mb-8">
                                     <h4>Skillset</h4>
                                     <div className="infoGrid-1 mt-5">
@@ -76,6 +80,8 @@ const SubmittedApplications = () => {
                                         })}
                                     </div>
                                 </div>
+                                {/* -------------------------- */}
+                                {/* COVID SITUATION */}
                                 <div className="infoBlock mb-8">
                                     <h4>Covid Situation</h4>
                                     <div className="infoGrid-2 mt-5 mb-4">
@@ -120,6 +126,8 @@ const SubmittedApplications = () => {
                                         <input type="date" value={vaccinated_at} onChange={e => e.preventDefault()} className="mt-2 mb-3 w-80" onClick={e => e.preventDefault()} />
                                     </div>}
                                 </div>
+                                {/* -------------------------- */}
+                                {/* INSIGHTS */}
                                 <div className="infoBlock mb-8">
                                     <h4>Insights</h4>
                                     <div className="infoGrid-2 mt-5 mb-3">
