@@ -33,7 +33,7 @@ const Covid = ({ setCovid }) => {
 
     const isChecked = () => {
         //checklist 1
-        const fso = document.getElementById('fso')
+        const fso = document.getElementById('from_sairme');
         const fromHome = document.getElementById('from_home');
         const hybrid = document.getElementById('hybrid');
 
@@ -63,8 +63,8 @@ const Covid = ({ setCovid }) => {
             <div className="checking-form">
                 <h2>how would you prefer to work?</h2>
                 <div className="checking-grid mt-1 mb-4">
-                    <input type="radio" id="fso" name="prefer_work" value="from_sairme_office" onChange={e => setPreferWork(e.target.value)} />
-                    <label htmlFor="fso">From Sairme Office</label>
+                    <input type="radio" id="from_sairme" name="prefer_work" value="from_office" onChange={e => setPreferWork(e.target.value)} />
+                    <label htmlFor="from_sairme">From Sairme Office</label>
 
                     <input type="radio" id="from_home" name="prefer_work" value="from_home" onChange={e => setPreferWork(e.target.value)} />
                     <label htmlFor="from_home">From Home</label>

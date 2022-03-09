@@ -36,24 +36,24 @@ const FormPage = () => {
                     returnMain();
                 }, 3000);
             })
-            .catch((err) => alert('Something went wrong 🥺 please try again | error: ', err));
+            .catch((err) => console.log('Something went wrong 🥺 please try again | error: ', err));
     }
 
     const dataObject = {};
 
     const createData = () => {
-        dataObject.token = "f94782b5-b2fd-4367-944b-a2e91667fc0a";
+        dataObject.token = "367d1c5f-5c8a-405a-807d-48488f2b05ad";
         dataObject.first_name = tempData.first_name;
         dataObject.last_name = tempData.last_name;
         dataObject.email = tempData.email;
         if (tempData.phone !== 'NULL') dataObject.phone = tempData.phone;
         dataObject.skills = tempData.skills;
         dataObject.work_preference = tempData.work_preference;
-        dataObject.had_covid = Boolean(tempData.had_covid);
+        dataObject.had_covid = tempData.had_covid === 'true' ? true : false;
         if (tempData.had_covid_at !== 'NAN') dataObject.had_covid_at = tempData.had_covid_at;
-        dataObject.vaccinated = Boolean(tempData.vaccinated);
+        dataObject.vaccinated = tempData.vaccinated === 'true' ? true : false;
         if (tempData.vaccinated_at !== 'NAN') dataObject.vaccinated_at = tempData.vaccinated_at;
-        dataObject.will_organize_devtalk = Boolean(tempData.will_organize_devtalk);
+        dataObject.will_organize_devtalk = tempData.will_organize_devtalk === 'true' ? true : false;
         if (tempData.devtalk_topic !== 'NULL') dataObject.devtalk_topic = tempData.devtalk_topic;
         dataObject.something_special = tempData.something_special;
     }
@@ -65,6 +65,7 @@ const FormPage = () => {
     const sendData = () => {
         createData();
         postData();
+        console.log(dataObject);
     }
 
     const changeBullets = (indx) => {

@@ -296,6 +296,14 @@ ul li:hover {
   margin-top: 6rem;
 }
 
+.mt-7 {
+  margin-top: 7rem;
+}
+
+.mt-8 {
+  margin-top: 8rem;
+}
+
 .mb-1 {
   margin-bottom: 1rem;
 }
@@ -319,6 +327,21 @@ ul li:hover {
 .mb-6 {
   margin-bottom: 6rem;
 }
+
+.mb-7 {
+  margin-bottom: 7rem;
+}
+
+.mb-8 {
+  margin-bottom: 8rem;
+}
+
+.w-80 {
+  width: 80%;
+  margin-left: 0;
+  margin-right: 0;
+}
+
 
 /* MARGINS */
 
@@ -361,6 +384,11 @@ ul li:hover {
     width: 20rem;
     top: -28px;
     left: -25px;
+  }
+
+  .inform {
+    padding-left: 50px !important;
+    padding-right: 0px !important;
   }
 }
 
@@ -435,8 +463,8 @@ input[type='radio'] {
 textarea {
   width: 90%;
   resize: none;
-  padding: 30px 20px;
-  font-size: 16px;
+  padding: 45px 30px;
+  font-size: 18px;
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 400;
@@ -527,7 +555,7 @@ textarea::-webkit-scrollbar {
   padding: 50px 70px 50px 180px;
   background-color: #fff;
   display: none;
-  grid-template-columns: auto auto;
+  grid-template-columns: 50% 50%;
 }
 
 .inform h4 {
@@ -554,6 +582,10 @@ textarea::-webkit-scrollbar {
   color: #454545 !important;
 }
 
+.c-darkGray {
+  color: #3a3a3a;
+}
+
 .bg-light {
   background-color: var(--redberry-lightred);
 }
@@ -563,6 +595,18 @@ textarea::-webkit-scrollbar {
   display: grid;
   grid-template-columns: 30% 70%;
   gap: 3rem;
+}
+
+.infoGrid-2 {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto;
+}
+
+.infoGrid-2 h4 {
+  color: black;
+  text-decoration: none;
+  font-style: normal;
 }
 
 .arrow-up {

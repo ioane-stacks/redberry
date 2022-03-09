@@ -3,6 +3,7 @@ import React from "react";
 const SubmitPage = ({ sendData, prevPage }) => {
 
 
+
     return (
         <section>
             <div className="container-submit">

@@ -2,24 +2,20 @@ import React, { useState, useEffect, useCallback } from "react";
 import { tempData } from "../tempData";
 import { MdOutlineKeyboardArrowLeft } from 'react-icons/md';
 import { BsDash } from 'react-icons/bs'
+import { useFetch } from "../useFetch";
 
 const TechnicalSkillSet = ({ setTechInfo }) => {
     const [skills, setSkills] = useState(['']);
-    const [oSkill, setOSkill] = useState(skills);
     const [skill, setSkill] = useState(0);
     const [toggle, setToggle] = useState(false);
 
     const [experience, setExperience] = useState('');
     const url = 'https://bootcamp-2022.devtest.ge/api/skills';
 
-    const fetchData = useCallback(async () => {
-        const response = await fetch(url);
-        if (response.status >= 200 && response.status <= 299) {
-            const data = await response.json();
-            setSkills(data);
-            setOSkill(data);
-        }
-    }, []);
+    const { appData } = useFetch(url);
+    useEffect(() => {
+        setSkills(appData);
+    }, [url, appData, skills]);
 
     const removeSelectedItem = (name) => {
         const newItem = tempData.skills.filter(x => x.itemName !== name);
@@ -55,16 +51,8 @@ const TechnicalSkillSet = ({ setTechInfo }) => {
     }
 
     useEffect(() => {
-        fetchData();
-    }, []);
-
-    useEffect(() => {
         checkValidation();
     }, [checkValidation]);
-
-    useEffect(() => {
-        setSkills(oSkill);
-    }, [removeSelectedItem]);
 
     const DropdownToggle = () => {
         const newData = skills.filter(x => x.id !== tempData.skills.filter(u => u.id == x.id).map(u => u.id)[0]);
