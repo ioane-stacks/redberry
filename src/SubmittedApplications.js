@@ -5,7 +5,7 @@ import { useFetch } from "./useFetch";
 const SubmittedApplications = () => {
     const [skillData, setSkillData] = useState([]);
 
-    const url = 'https://bootcamp-2022.devtest.ge/api/applications?token=367d1c5f-5c8a-405a-807d-48488f2b05ad';
+    const url = 'https://bootcamp-2022.devtest.ge/api/applications?token=ab78a562-9cfc-4239-915e-46f848a765b8';
     const url2 = 'https://bootcamp-2022.devtest.ge/api/skills';
 
     const { appData } = useFetch(url);
